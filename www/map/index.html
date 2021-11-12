@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -15,7 +16,7 @@
 		</tr>
 		<tr>
 			<td style="padding: 5px; padding-left: 24px; background: #aaaaaa; color:white;">
-				<a href="/" style="color:white;">L1 maps</a>&nbsp;&nbsp;<span style="opacity:0.7">></span>&nbsp;&nbsp;<span id="crumbs_last_element"></span>
+				<a href="/" style="color:white;">{% trans 'L1 maps' %}</a>&nbsp;&nbsp;<span style="opacity:0.7">></span>&nbsp;&nbsp;<span id="crumbs_last_element"></span>
 			</td>
 		</tr>
 		<tr>
@@ -24,15 +25,15 @@
 					<tr>
 						<!--<td valign=top style="padding-top:6px">&#x2190; <a href="/">Back to list</a></td>
 						<td width="16"></td><td width="20"><div class="div-vert-line-80"/></td>-->
-						<td valign=top style="padding-top:6px">Links:</td>
+						<td valign=top style="padding-top:6px">{% trans 'Links' %}:</td>
 						<td valign="top">
 							<table>
-								<tr><td><input type="radio" name="radio_prod_links_mode" value="1" onclick="drawL1Map();" checked="checked" /></td><td>production</td></tr>
-								<tr><td><input type="radio" name="radio_prod_links_mode" value="0" onclick="drawL1Map();"/></td><td>OOB management</td></tr>
+								<tr><td><input type="radio" name="radio_prod_links_mode" value="1" onclick="drawL1Map();" checked="checked" /></td><td>{% trans 'production' %}</td></tr>
+								<tr><td><input type="radio" name="radio_prod_links_mode" value="0" onclick="drawL1Map();"/></td><td>{% trans 'OOB management' %}</td></tr>
 							</table>
 						</td>
 						<td width="16"></td><td width="20"><div class="div-vert-line-80"/></td>
-						<td valign=top style="padding-top:6px">Virtual chassis:</td>
+						<td valign=top style="padding-top:6px">{% trans 'Virtual chassis' %}:</td>
 						<td valign="top">
 							<table>
 								<tr><td><input type="radio" name="radio_expand_vc_mode" value="0" onclick="drawL1Map();" checked="checked" /></td><td>collapse</td></tr>
@@ -40,25 +41,25 @@
 							</table>
 						</td>
 						<td width="16"></td><td width="20"><div class="div-vert-line-80"/></td>
-						<td valign=top style="padding-top:6px">Legend:</td>
+						<td valign=top style="padding-top:6px">{% trans 'Legend' %}:</td>
 						<td valign="top">
 							<table>
-								<tr><td><input type="radio" name="legend_radio" value="1" onclick="document.getElementById('legend').style.display='none';" checked="checked" /></td><td>hide</td></tr>
-								<tr><td><input type="radio" name="legend_radio" value="0" onclick="document.getElementById('legend').style.display='block';"/></td><td>show</td></tr>
+								<tr><td><input type="radio" name="legend_radio" value="1" onclick="document.getElementById('legend').style.display='none';" checked="checked" /></td><td>{% trans 'hide' %}</td></tr>
+								<tr><td><input type="radio" name="legend_radio" value="0" onclick="document.getElementById('legend').style.display='block';"/></td><td>{% trans 'show' %}</td></tr>
 							</table>
 						</td>
 						<td width="16"></td><td width="20"><div class="div-vert-line-80"/></td>
 						<td valign="top" style="padding-top:3px;">
 							<table margin=0 padding=0>
 								<tr>
-									<td><a href="" id="svg_download_link" style="display: none;">Download as SVG</a><div id="svg_download_link_placeholder" style="display: inline;">Download as SVG</div></td>
+									<td><a href="" id="svg_download_link" style="display: none;">{% trans 'Download as SVG' %}</a><div id="svg_download_link_placeholder" style="display: inline;">{% trans 'Download as SVG' %}</div></td>
 									<td width="2"></td>
-									<td class="secondary_text">Right click, and choose "Save as..."</td>
+									<td class="secondary_text">{% trans 'Right click, and choose "Save as..."' %}</td>
 								</tr>
 								<tr>
 									<td></td>
 									<td></td>
-									<td class="secondary_text">You can then open SVG fies by any vector graphics editor</td>
+									<td class="secondary_text">{% trans 'You can then open SVG fies by any vector graphics editor' %}</td>
 								</tr>
 							</table>
 						</td>
@@ -72,48 +73,48 @@
 								<text x="0" y="10" class="secondary_text">Physical links:</text>
 								<g transform="translate(0, 40)">
 									<line class="link400gb" stroke-width="5" x1="0" y1="5" x2="40" y2="5"></line>
-									<text x="50" y="10">400 Gigabit/sec</text>
+									<text x="50" y="10">400 {% trans 'Gigabit/sec' %}</text>
 									<line class="link200gb" stroke-width="3.16" x1="0" y1="25" x2="40" y2="25"></line>
-									<text x="50" y="30">200 Gigabit/sec</text>
+									<text x="50" y="30">200 {% trans 'Gigabit/sec' %}</text>
 									<line class="link100gb" stroke-width="2.5" x1="0" y1="45" x2="40" y2="45"></line>
-									<text x="50" y="50">100 Gigabit/sec</text>
+									<text x="50" y="50">100 {% trans 'Gigabit/sec' %}</text>
 									<line class="link50gb" stroke-width="1.58" x1="0" y1="65" x2="40" y2="65"></line>
-									<text x="50" y="70">50 Gigabit/sec</text>
+									<text x="50" y="70">50 {% trans 'Gigabit/sec' %}</text>
 									<line class="link40gb" stroke-width="0.5" x1="0" y1="85" x2="40" y2="85"></line>
-									<text x="50" y="90">40 Gigabit/sec</text>
+									<text x="50" y="90">40 {% trans 'Gigabit/sec' %}</text>
 									<line class="link25gb" stroke-width="0.5" x1="0" y1="105" x2="40" y2="105"></line>
-									<text x="50" y="110">25 Gigabit/sec</text>
+									<text x="50" y="110">25 {% trans 'Gigabit/sec' %}</text>
 								</g>
 
 								<g transform="translate(200, 40)">
 									<line class="link10gb" stroke-width="5" x1="0" y1="5" x2="40" y2="5"></line>
-									<text x="50" y="10">10 Gigabit/sec</text>
+									<text x="50" y="10">10 {% trans 'Gigabit/sec' %}</text>
 									<line class="link5gb" stroke-width="3.16" x1="0" y1="25" x2="40" y2="25"></line>
-									<text x="50" y="30">5 Gigabit/sec</text>
+									<text x="50" y="30">5 {% trans 'Gigabit/sec' %}</text>
 									<line class="link2gb" stroke-width="2.5" x1="0" y1="45" x2="40" y2="45"></line>
-									<text x="50" y="50">2.5 Gigabit/sec</text>
+									<text x="50" y="50">2.5 {% trans 'Gigabit/sec' %}</text>
 									<line class="link1gb" stroke-width="1.58" x1="0" y1="65" x2="40" y2="65"></line>
-									<text x="50" y="70">1 Gigabit/sec</text>
+									<text x="50" y="70">1 {% trans 'Gigabit/sec' %}</text>
 									<line class="link0_1gb" stroke-width="0.5" x1="0" y1="85" x2="40" y2="85"></line>
-									<text x="50" y="90">100/10 Mbit/sec</text>
+									<text x="50" y="90">100/10 {% trans 'Mbit/sec' %}</text>
 									<circle class="link0_1gb-label-circle" r="7" cx="21" cy="105"></circle>
 									<g class="labels"><text dy="3" x="18" y="105">2</text></g>
-									<text x="51" y="110">Number of links</text>
+									<text x="51" y="110">{% trans 'Number of links' %}</text>
 								</g>
 
-								<text x="396" y="10" class="secondary_text">Cluster</text>
-								<text x="396" y="28" class="secondary_text">(separate control planes):</text>
+								<text x="396" y="10" class="secondary_text">{% trans 'Cluster' %}</text>
+								<text x="396" y="28" class="secondary_text">({% trans 'separate control planes' %}):</text>
 								
 								<g transform="translate(200, 20)">
 									<text x="200" y="31" style="font-weight: bold;">dc2-ext-fw01</text>
 									<image xlink:href="/img/firewall.svg" width="32" height="32" x="200" y="40"></image>
-									<text x="240" y="60">node01</text>
+									<text x="240" y="60">{% trans 'node' %}01</text>
 									<image xlink:href="/img/firewall.svg" width="32" height="32" x="200" y="100"></image>
-									<text x="240" y="120">node02</text>
+									<text x="240" y="120">{% trans 'node' %}02</text>
 									<rect x="196" y="36" height="100" width="40" class="clusters"/>
 								</g>
 
-								<text x="596" y="10" class="secondary_text">Virtual chassis</text>
+								<text x="596" y="10" class="secondary_text">{% trans 'Virtual chassis' %}</text>
 								<text x="596" y="28" class="secondary_text">(one control plane):</text>
 								<g transform="translate(200, 20)">
 									<text x="400" y="31" style="font-weight: bold;">dc2-core-sw01</text>
@@ -124,7 +125,7 @@
 									<rect x="396" y="36" height="100" width="40" class="VCs"/>
 								</g>
 								
-								<text x="796" y="10" class="secondary_text">Virtual chassis</text>
+								<text x="796" y="10" class="secondary_text">{% trans 'Virtual chassis' %}</text>
 								<text x="796" y="28" class="secondary_text">(in collapsed mode):</text>
 								<g transform="translate(200, 10)">
 									<image xlink:href="/img/switch.svg" width="32" height="32" x="600" y="40"></image>
@@ -133,7 +134,7 @@
 								</g>
 								
 								<g transform="translate(200, 100)">
-									<text x="596" y="10" class="secondary_text">Standalone node:</text>
+									<text x="596" y="10" class="secondary_text">{% trans 'Standalone node' %}:</text>
 									<text x="596" y="28" class="secondary_text"></text>
 									<image xlink:href="/img/switch.svg" width="32" height="32" x="600" y="20"></image>
 									<text x="640" y="40">dc2-leaf-sw01</text>
@@ -145,7 +146,7 @@
 		</tr>
 		<tr>
 			<td valign="top" width="99%" style="position: relative;">
-				<div id="progressbar" style="margin:22px;"><table><tr><td valign="top">Loading</td><td>&nbsp;</td><td><img src="/img/bx_loader.gif" height=16 width=16/></td></tr></table></div>
+				<div id="progressbar" style="margin:22px;"><table><tr><td valign="top">{% trans 'Loading' %}</td><td>&nbsp;</td><td><img src="/img/bx_loader.gif" height=16 width=16/></td></tr></table></div>
 				<p id="error-message" style="color: red; padding: 22px; display: none;"></p>
 				<svg width="100%" height="100%" id="svg1" onClick="hideInfobox();"></svg>
 				<div class="infobox" id="infobox" style="display: none;"></div>

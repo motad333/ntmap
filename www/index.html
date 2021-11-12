@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -10,7 +11,7 @@
 		<div class="overlay"></div>
 			<div class="modal" style="transform: translate(-212px, -60px);"> <!-- TODO: set form position via JS -->
 				<form>
-				<p>Are you sure? Deleting a group will cause deleting all its maps</p>
+				<p>{% trans 'Are you sure? Deleting a group will cause deleting all its maps' %}</p>
 				<p><span id="group-delete-button"></span> <input type="button" value="Cancel" onclick="hideGroupDeleteAlert();"></input></p>
 				</form>
 			</div>
@@ -21,15 +22,15 @@
 			<div class="modal" style="transform: translate(-350px, -208px);"> <!-- TODO: set form position via JS -->
 				<form>
 				<input type="hidden" name="mapID" id="mapID" value="0"></input>
-				<p><b id="map-update-form-caption">Editing map</b></p>
-				<p><div class="field-caption">Group:</div>
+				<p><b id="map-update-form-caption">{% trans 'Editing map' %}</b></p>
+				<p><div class="field-caption">{% trans 'Group' %}:</div>
 					<select id="mapGroup">
 					</select>
 				</p>
-				<p><div class="field-caption">Name:</div><input type="text" size="80" value="" id="mapName"></input></p>
-				<p><div class="field-caption">Scheme:</div><textarea cols="80" rows="10" id="mapScheme"></textarea></p>
-				<p><input name="vert" type="radio" value="true" id="radioVertMap" checked="" /> Vertical<br/>
-					<input name="vert" type="radio" value="false" id="radioHorizMap"/> Horizontal</p>
+				<p><div class="field-caption">{% trans 'Name' %}:</div><input type="text" size="80" value="" id="mapName"></input></p>
+				<p><div class="field-caption">{% trans 'Scheme' %}:</div><textarea cols="80" rows="10" id="mapScheme"></textarea></p>
+				<p><input name="vert" type="radio" value="true" id="radioVertMap" checked="" /> {% trans Vertical %}<br/>
+					<input name="vert" type="radio" value="false" id="radioHorizMap"/> {% trans Horizontal %}</p>
 				<div style="display: none;" id="map-error-message"></div>
 				<p><input type="button" value="Update & Close" onclick="updateMapAndClose();"></input> <input type="button" value="Update" id="update-button" onclick="updateMap();"></input> <input type="button" value="Cancel" onclick="hideMapUpdateForm();"></input></p>
 				</form>
@@ -41,8 +42,8 @@
 			<div class="modal" style="transform: translate(-350px, -86px);"> <!-- TODO: set form position via JS -->
 				<form>
 				<input type="hidden" name="groupID" id="groupID" value="0"></input>
-				<p><b id="group-update-form-caption">Editing group</b></p>
-				<p><div class="field-caption">Name:</div><input type="text" size="80" value="" id="groupName"></input></p>
+				<p><b id="group-update-form-caption">{% trans 'Editing group' %}</b></p>
+				<p><div class="field-caption">{% trans 'Name' %}:</div><input type="text" size="80" value="" id="groupName"></input></p>
 				<div style="display: none;" id="group-error-message"></div>
 				<p><input type="button" value="Update & Close" onclick="updateGroupAndClose();"></input> <input type="button" value="Cancel" onclick="hideGroupUpdateForm();"></input></p>
 				</form>
@@ -57,13 +58,13 @@
 		</tr>
 		<tr>
 			<td style="padding: 5px; padding-left: 24px; background: #aaaaaa; color:white;">
-				L1 maps
+				{% trans 'L1 maps' %}
 			</td>
 		</tr>
 		<tr>
 			<td style="background-color: #efefef; padding: 10px; padding-left: 21px;" colspan="2">
-				<table id='read-mode-button'><tr><td><a href='' onclick="return toggleEditMode();"><svg height=16 width=16 style='padding-top: 1px;'><image xlink:href="/img/locked.svg" width=16 height=16></image></svg></a></td><td>&nbsp;Read mode</td></tr></table>
-				<table id='edit-mode-button' style='display: none;'><tr><td><a href='' onclick="return toggleReadMode();"><svg height=16 width=16 style='padding-top: 1px;'><image xlink:href="/img/unlocked.svg" width=16 height=16></image></svg></a></td><td>&nbsp;Edit mode</td></tr></table>
+				<table id='read-mode-button'><tr><td><a href='' onclick="return toggleEditMode();"><svg height=16 width=16 style='padding-top: 1px;'><image xlink:href="/img/locked.svg" width=16 height=16></image></svg></a></td><td>&nbsp;{% trans 'Read mode' %}</td></tr></table>
+				<table id='edit-mode-button' style='display: none;'><tr><td><a href='' onclick="return toggleReadMode();"><svg height=16 width=16 style='padding-top: 1px;'><image xlink:href="/img/unlocked.svg" width=16 height=16></image></svg></a></td><td>&nbsp;{% trans 'Edit mode' %}</td></tr></table>
 			</td>
 		</tr>
 		<tr>
@@ -80,7 +81,7 @@
 	<table style="width: 100%; height: calc(100% - 1px);">
 		<tr>
 			<td style="padding-left: 21px;" class="secondary_text">v0.7.1</td>
-			<td style="padding-right: 21px; text-align: right;" class="secondary_text"><a href="https://github.com/den-it/ntmap/blob/master/docs/index.md">Docs</a></td>
+			<td style="padding-right: 21px; text-align: right;" class="secondary_text"><a href="https://github.com/den-it/ntmap/blob/master/docs/index.md">{% trans 'Docs' %}</a></td>
 		</tr>
 	</table>
 </footer>
